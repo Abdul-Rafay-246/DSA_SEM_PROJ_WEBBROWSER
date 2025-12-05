@@ -1,0 +1,35 @@
+================================================================================
+                            Basic HTML Page
+================================================================================
+
+WELCOME TO MY PAGE
+================================================================================
+
+About This Page
+--------------------------------------------------------------------------------
+This is a simple HTML page with some basic formatting. Here you can see 
+different types of text styles.
+
+Text Formatting Examples
+--------------------------------------------------------------------------------
+This is a regular paragraph with some **bold text** and some *italic text* 
+in it.
+
+You can also have **bold text using the b tag** and *italic text using the 
+i tag*.
+
+More Examples
+--------------------------------------------------------------------------------
+Here's another paragraph with **important bold text** and *emphasized italic 
+text* mixed together.
+
+Sometimes you might want to combine them: ***bold and italic together***!
+
+================================================================================
+
+Note: In a real web browser:
+- **Bold text** appears thicker and darker
+- *Italic text* appears slanted
+- Headings (h1, h2, h3) appear in different sizes with h1 being the largest
+- The page title "Basic HTML Page" appears in the browser tab/window title bar
+

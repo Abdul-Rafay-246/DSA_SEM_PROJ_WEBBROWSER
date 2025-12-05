@@ -1,0 +1,15 @@
+Welcome to My Page
+
+About This Page
+This is a simple HTML page with some basic formatting. Here you can see different types of text styles.
+
+Text Formatting Examples
+This is a regular paragraph with some bold text and some italic text in it.
+
+You can also have bold text using the b tag and italic text using the i tag.
+
+More Examples
+Here's another paragraph with important bold text and emphasized italic text mixed together.
+
+Sometimes you might want to combine them: bold and italic together!
+
