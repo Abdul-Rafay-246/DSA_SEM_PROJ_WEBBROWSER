@@ -1,0 +1,127 @@
+TITLE: HTML Basic
+H2: **Tutorials**
+H3: HTML and CSS
+H3: Data Analytics
+H3: Web Building
+H3: JavaScript
+H3: Web Building
+H3: Backend
+H3: Data Analytics
+H3: Web Building
+H2: **References**
+H3: HTML and CSS
+H3: JavaScript
+H3: Backend
+H2: **Exercises**
+H3: HTML and CSS
+H3: Data Analytics
+H3: JavaScript
+H3: Backend
+H3: Data Analytics
+H2: **Certificates**
+H3: HTML and CSS
+H3: Data Analytics
+H3: Programs
+H3: JavaScript
+H3: Programs
+H3: Programs
+H3: Backend
+H3: Data Analytics
+H2: **All Our Services**
+P: W3Schools offers a wide range of services and products for
+                beginners and professionals, helping millions of people everyday to learn and master new
+                skills. 
+P: Enjoy our free tutorials like millions of other internet
+                      users since 1999
+P: Explore our selection of references covering all popular
+                      coding languages
+P: Create your own website with - no setup required **W3Schools Spaces**
+P: Test your skills with different exercises
+P: Test yourself with multiple choice questions
+P: Document your knowledge
+P: Create an account to track your progress
+P: Earn XP and climb the ranks with different challenges
+P: Become a PLUS user and unlock powerful features (ad-free,
+                      hosting, support,..)
+P: Not sure where you want to start? Follow our guided path
+P: With our online code editor, you can edit code and view
+                      the result in your browser
+P: Learn the basics of HTML in a fun and engaging video
+                      tutorial
+P: We have created a bunch of responsive website templates
+                      you can use - for free!
+P: Host your own website, and share it to the world with **W3Schools Spaces**
+P: Create your own server using Python, PHP, React.js,
+                      Node.js, Java, C#, etc.
+P: Large collection of code snippets for HTML, CSS and
+                      JavaScript
+P: Build fast and responsive sites using our free framework **W3.CSS**
+P: Read long term trends of browser usage
+P: Test your typing speed
+P: Learn Amazon Web Services
+P: Use our color picker to find different RGB, HEX and HSL
+                      colors.
+P: W3Schools Coding Game! Help the lynx collect pine cones
+P: Get personalized learning journey based on your current skills and goals
+P: Join our newsletter and get access to exclusive content
+                      every month
+P: Check out our refererence page with all the emojis supported in HTML &#128522;
+P: Check out our full UTF-8 Character reference
+P: Chat, Learn and Connect with Us on Discord
+P: Contact us about W3Schools Academy for educational
+                      institutions
+P: Contact us about W3Schools Academy for your organization
+P: About sales: About errors: sales@w3schools.com  help@w3schools.com
+H2: Tutorial HTML
+H2: Forms HTML
+H2: Graphics HTML
+H2: Media HTML
+H2: APIs HTML
+H2: Examples HTML
+H2: References HTML
+H1: HTML Basic Examples
+P: In this chapter we will show some basic HTML examples.
+P: Don't worry if we use tags you have not learned about yet.
+H2: HTML Documents
+P: All HTML documents must start with a document type declaration: . &lt;!DOCTYPE html&gt;
+P: The HTML document itself begins with and ends with . &lt;html&gt; &lt;/html&gt;
+P: The visible part of the HTML document is between and . &lt;body&gt; &lt;/body&gt;
+H3: Example
+H2: The &lt;!DOCTYPE&gt; Declaration
+P: The declaration represents the document type, and helps browsers to display web pages correctly. &lt;!DOCTYPE&gt;
+P: It must only appear once, at the top of the page (before any HTML tags).
+P: The declaration is not case sensitive. &lt;!DOCTYPE&gt;
+P: The declaration for HTML5 is: &lt;!DOCTYPE&gt;
+H2: HTML Headings
+P: HTML headings are defined with the to tags. &lt;h1&gt; &lt;h6&gt;
+P: defines the most important heading. defines the least important 
+heading:&nbsp; &lt;h1&gt; &lt;h6&gt;
+H3: Example
+H2: HTML Paragraphs
+P: HTML paragraphs are defined with the tag: &lt;p&gt;
+H3: Example
+H2: HTML Links
+P: HTML links are defined with the tag: &lt;a&gt;
+H3: Example
+P: The link's destination is specified in the attribute.&nbsp; href
+P: Attributes are used to provide additional information about HTML elements.
+P: You will learn more about attributes in a later chapter.
+H2: HTML Images
+P: HTML images are defined with the tag. &lt;img&gt;
+P: The source file ( ), alternative text ( ), , and are provided as attributes: src alt width height
+H3: Example
+H2: How to View HTML Source
+P: Have you ever seen a Web page and wondered &quot;Hey! How did they do that?&quot;
+H3: View HTML Source Code:
+P: Click CTRL + U in an HTML page, or right-click on the page and select &quot;View Page Source&quot;. This will open a 
+new tab 
+containing the HTML source code of the page.
+H3: Inspect an HTML Element:
+P: Right-click on an element (or a blank area), and choose &quot;Inspect&quot; to see what elements are made up of (you will see both 
+the HTML and the CSS). You can also edit the HTML or CSS on-the-fly in the 
+Elements or Styles panel that opens.
+P: REMOVE ADS
+H2: Contact Sales
+P: If you want to use W3Schools services as an educational institution, team or enterprise, send us an e-mail: 
+H2: Report Error
+P: If you want to report an error, or if you want to make a suggestion, send us an e-mail: 

@@ -1,0 +1,56 @@
+TITLE: Guide to Databases - GeeksforGeeks
+H1: Guide to Databases
+P: This is a complete guide to databases, where you’ll learn the foundations and advanced concepts of the most widely used database technologies -
+P: Here, you’ll understand how each of these works, what they’re used for, and how they fit into real-world applications.
+H3: 1. SQL
+H3: 2. MySQL
+H3: 3. PostgreSQL
+H3: 4. ****PL/SQL****
+H3: 5. ****MongoDB****
+P: U
+P: U
+H3: Explore
+H2: Basics
+P: What is SQL?
+P: SQL Data Types
+P: SQL Operators
+P: SQL Commands | DDL, DQL, DML, DCL and TCL Commands
+P: SQL Database Operations
+P: SQL CREATE TABLE
+H2: Queries &amp; Operations
+P: SQL SELECT Query
+P: SQL INSERT INTO Statement
+P: SQL UPDATE Statement
+P: SQL DELETE Statement
+P: SQL - WHERE Clause
+P: Aliases in SQL
+H2: SQL Joins &amp; Functions
+P: SQL Joins (Inner, Left, Right and Full Join)
+P: SQL CROSS JOIN
+P: SQL | Date Functions
+P: SQL | String functions
+H2: Data Constraints &amp; Aggregate Functions
+P: SQL NOT NULL Constraint
+P: SQL PRIMARY KEY Constraint
+P: SQL Count() Function
+P: SQL SUM() Function
+P: SQL MAX() Function
+P: AVG() Function in SQL
+H2: Advanced SQL Topics
+P: SQL Subquery
+P: Window Functions in SQL
+P: SQL Stored Procedures
+P: SQL Triggers
+P: SQL Performance Tuning
+P: SQL TRANSACTIONS
+H2: Database Design &amp; Security
+P: Introduction of ER Model
+P: Introduction to Database Normalization
+P: SQL Injection
+P: SQL Data Encryption
+P: SQL Backup
+P: What is Object-Relational Mapping (ORM) in DBMS?
+H3: Improve your Coding Skills with Practice
+H2: Thank You!
+P: It seems that you are using an ad blocker. 
+H2: What kind of Experience do you want to share?
