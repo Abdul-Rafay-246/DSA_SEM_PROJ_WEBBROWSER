@@ -1,0 +1,5 @@
+1- Download all the files and keep in one folder
+2- No need to build the browser_gui.cpp file is browser_gui.exe is already downloaded 
+3- if you want to rebuild the command is (cd "Your_Folder" g++ browser_gui.cpp -o browser_gui.exe -lcomctl32 -lgdi32)
+4- .\browser_gui.exe to run gui of the browser
+5- add one tab in the gui and then paste a link to a website the gui will access the website html and parse it through the parser and then show the webpage in on the gui screen. The gui is scrollable. it is recommand to use basic html webpages as the parser is its first basic stage. hyperlinks might cause extra information to appear

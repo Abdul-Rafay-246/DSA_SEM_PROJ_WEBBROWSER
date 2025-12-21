@@ -5,6 +5,7 @@
 #include <cctype>
 #include <stdexcept>
 #include <cstdio>
+#include <string>
 
 // ============================================================================
 // STRING UTILITY FUNCTIONS (Manual implementation)
@@ -704,6 +705,7 @@ private:
     AVLTree* tagRegistry;
     Graph* elementGraph;
     int nodeCounter;
+    std::string pageTitle;
     
     // HTML4 valid tags (no duplicates)
     const char* html4Tags[49] = {
@@ -1012,6 +1014,77 @@ private:
         
         delete nodeStack;
     }
+
+    bool tagEquals(HTMLNode* node, const char* name) {
+        return node && node->tagName && name && strcmp(node->tagName, name) == 0;
+    }
+
+    bool isInlineBold(HTMLNode* node) {
+        return tagEquals(node, "strong") || tagEquals(node, "b");
+    }
+
+    bool isInlineItalic(HTMLNode* node) {
+        return tagEquals(node, "em") || tagEquals(node, "i");
+    }
+
+    void appendTrimmed(std::string& out, const char* text) {
+        if (!text) return;
+        std::string t(text);
+        size_t start = t.find_first_not_of(" \t\r\n");
+        if (start == std::string::npos) return;
+        size_t end = t.find_last_not_of(" \t\r\n");
+        if (!out.empty()) out += " ";
+        out += t.substr(start, end - start + 1);
+    }
+
+    void appendWrapped(std::string& out, const char* marker, const std::string& inner) {
+        if (inner.empty()) return;
+        if (!out.empty()) out += " ";
+        out += marker;
+        out += inner;
+        out += marker;
+    }
+
+    void buildInlineText(HTMLNode* node, std::string& out) {
+        if (!node) return;
+        if (node->textContent && strlen(node->textContent) > 0) {
+            appendTrimmed(out, node->textContent);
+        }
+
+        HTMLNode* child = node->firstChild;
+        while (child) {
+            if (isInlineBold(child)) {
+                std::string inner;
+                buildInlineText(child, inner);
+                appendWrapped(out, "**", inner);
+            } else if (isInlineItalic(child)) {
+                std::string inner;
+                buildInlineText(child, inner);
+                appendWrapped(out, "*", inner);
+            } else if (tagEquals(child, "br")) {
+                if (!out.empty()) out += " ";
+            } else {
+                buildInlineText(child, out);
+            }
+            child = child->nextSibling;
+        }
+    }
+
+    void extractTitle(HTMLNode* node) {
+        if (!node || !pageTitle.empty()) return;
+        if (tagEquals(node, "title")) {
+            std::string text;
+            buildInlineText(node, text);
+            pageTitle = text;
+            return;
+        }
+        HTMLNode* child = node->firstChild;
+        while (child) {
+            extractTitle(child);
+            if (!pageTitle.empty()) return;
+            child = child->nextSibling;
+        }
+    }
     
     void writeNodeToFile(std::ofstream& file, HTMLNode* node, int indent) {
         if (!node) return;
@@ -1034,6 +1107,28 @@ private:
         HTMLNode* child = node->firstChild;
         while (child) {
             writeNodeToFile(file, child, indent + 1);
+            child = child->nextSibling;
+        }
+    }
+
+    void writeRenderNodes(std::ofstream& file, HTMLNode* node) {
+        if (!node) return;
+
+        if (tagEquals(node, "h1") || tagEquals(node, "h2") || tagEquals(node, "h3") || tagEquals(node, "p")) {
+            std::string text;
+            buildInlineText(node, text);
+            if (!text.empty()) {
+                if (tagEquals(node, "h1")) file << "H1: ";
+                else if (tagEquals(node, "h2")) file << "H2: ";
+                else if (tagEquals(node, "h3")) file << "H3: ";
+                else file << "P: ";
+                file << text << std::endl;
+            }
+        }
+
+        HTMLNode* child = node->firstChild;
+        while (child) {
+            writeRenderNodes(file, child);
             child = child->nextSibling;
         }
     }
@@ -1068,7 +1163,7 @@ public:
         delete tokens;
     }
     
-    void writeToFile(const char* filename) {
+    void writeDebugToFile(const char* filename) {
         std::ofstream file(filename);
         if (!file.is_open()) {
             std::cerr << "Error: Cannot open file " << filename << " for writing" << std::endl;
@@ -1079,6 +1174,26 @@ public:
             writeNodeToFile(file, root, 0);
         }
         
+        file.close();
+    }
+
+    void writeRenderToFile(const char* filename) {
+        std::ofstream file(filename);
+        if (!file.is_open()) {
+            std::cerr << "Error: Cannot open file " << filename << " for writing" << std::endl;
+            return;
+        }
+
+        pageTitle.clear();
+        extractTitle(root);
+        if (!pageTitle.empty()) {
+            file << "TITLE: " << pageTitle << std::endl;
+        }
+
+        if (root) {
+            writeRenderNodes(file, root);
+        }
+
         file.close();
     }
     
@@ -1092,8 +1207,10 @@ public:
 // ============================================================================
 
 int main(int argc, char* argv[]) {
-    const char* inputFile = "test1.html";
-    const char* outputFile = "parsed_output.txt";
+    const char* inputFile = "output.html";
+    const char* outputFile = "page.txt";
+    const char* debugFile = "parsed_output.txt";
+    bool writeDebug = false;
     
     if (argc > 1) {
         inputFile = argv[1];
@@ -1101,7 +1218,19 @@ int main(int argc, char* argv[]) {
     if (argc > 2) {
         outputFile = argv[2];
     }
+    if (argc > 3 && strcmp(argv[3], "--debug") == 0) {
+        writeDebug = true;
+        if (argc > 4) {
+            debugFile = argv[4];
+        }
+    }
     
+    std::cout << "Input HTML: " << inputFile << std::endl;
+    std::cout << "Render output: " << outputFile << std::endl;
+    if (writeDebug) {
+        std::cout << "Debug output: " << debugFile << std::endl;
+    }
+
     // Read HTML file using C-style I/O
     FILE* file = fopen(inputFile, "r");
     if (!file) {
@@ -1125,7 +1254,10 @@ int main(int argc, char* argv[]) {
     parser.parse(htmlContent);
     
     // Write output
-    parser.writeToFile(outputFile);
+    parser.writeRenderToFile(outputFile);
+    if (writeDebug) {
+        parser.writeDebugToFile(debugFile);
+    }
     
     delete[] htmlContent;
     
