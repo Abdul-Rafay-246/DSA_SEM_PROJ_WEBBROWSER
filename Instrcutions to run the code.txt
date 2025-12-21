@@ -3,3 +3,5 @@
 3- if you want to rebuild the command is (cd "Your_Folder" g++ browser_gui.cpp -o browser_gui.exe -lcomctl32 -lgdi32)
 4- .\browser_gui.exe to run gui of the browser
 5- add one tab in the gui and then paste a link to a website the gui will access the website html and parse it through the parser and then show the webpage in on the gui screen. The gui is scrollable. it is recommand to use basic html webpages as the parser is its first basic stage. hyperlinks might cause extra information to appear
+6- one recommand link is https://www.iana.org/domains/reserved to ba placed in the gui, as it is a simple html page that out gui shows very well
+7- enjoy browsing
