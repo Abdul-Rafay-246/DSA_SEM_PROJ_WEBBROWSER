@@ -1,0 +1,40 @@
+TAG:html
+  TAG:head
+    TAG:meta
+      TAG:meta
+        TAG:title
+          TEXT:Basic HTML Page
+        TAG:body
+          TAG:h1
+            TEXT:Welcome to My Page
+          TAG:h2
+            TEXT:About This Page
+          TAG:p
+            TEXT:This is a simple HTML page with some basic formatting. Here you can see different types of text styles.
+          TAG:h2
+            TEXT:Text Formatting Examples
+          TAG:p
+            TEXT:This is a regular paragraph with some and some in it.
+            TAG:strong
+              TEXT:bold text
+            TAG:em
+              TEXT:italic text
+          TAG:p
+            TEXT:You can also have and .
+            TAG:b
+              TEXT:bold text using the b tag
+            TAG:i
+              TEXT:italic text using the i tag
+          TAG:h3
+            TEXT:More Examples
+          TAG:p
+            TEXT:Here's another paragraph with and mixed together.
+            TAG:strong
+              TEXT:important bold text
+            TAG:em
+              TEXT:emphasized italic text
+          TAG:p
+            TEXT:Sometimes you might want to combine them: !
+            TAG:strong
+              TAG:em
+                TEXT:bold and italic together
